@@ -46,7 +46,6 @@ export function closeTicketPopUp(){
 }
 
 export function createTicket({ name, priority }){
-	console.log(priority);
 	return {
 		type: types.CREATE_TICKET,
 		id: v4(),
