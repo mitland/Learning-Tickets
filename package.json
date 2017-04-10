@@ -27,7 +27,7 @@
   },
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --inline --hot",
+    "start": "webpack-dev-server --inline --hot"
   },
   "author": "Mitland",
   "license": "ISC"
