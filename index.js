@@ -10,7 +10,7 @@ injectTapEventPlugin();
 
 const store = configureStore();
 
-const element = document.getElementById("root");
+const element = document.getElementById('root');
 const render = ReactDom.render(
 	<Provider store={store}>
 		<MuiThemeProvider>

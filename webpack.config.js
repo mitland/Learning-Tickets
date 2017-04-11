@@ -18,6 +18,11 @@ module.exports = {
           query: {
             presets: ['babel-preset-es2015','babel-preset-react','babel-preset-stage-0']
           }
+        },
+        {
+          test: /\.jsx?$/,
+          loader: "eslint-loader",
+          exclude: /node_modules/,
         }
     ]     
   }

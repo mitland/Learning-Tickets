@@ -19,13 +19,13 @@ class Timer extends Component {
     render() {
         return (
             <span>{ this.props.time }</span>
-        )
+        );
     }
 }
 
 Timer.constants = {
     PAUSED: 'paused',
-}
+};
 
 Timer.propTypes = {
     time:       PropTypes.any.isRequired,
