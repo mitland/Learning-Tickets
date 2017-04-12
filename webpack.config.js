@@ -2,12 +2,12 @@ var path = require('path');
 
 module.exports = {
   entry: {
-    main: './index.js',
+    main: './src/index.js',
   },
   output: {
     filename: '[name]_bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: "/dist/",
+    publicPath: "./dist/",
   },
   module: {
     loaders: [
