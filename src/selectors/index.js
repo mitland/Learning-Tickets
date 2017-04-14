@@ -1,26 +1,30 @@
 import { Map } from 'immutable';
 
 export const getErrorsFor = (state, errorField) => {
-    return state.get(['errors', errorField]) || Map();
+    return state.getIn(['errors', errorField]) || Map();
+};
+
+export const getCreatingTicket = (state) => {
+    return state.get('creatingTicket') || false;
 };
 
 export const getAllTickets = (state) => {
-    return state.get(['tickets', 'all']) || Map();
+    return state.getIn(['tickets', 'all']) || Map();
 };
 
 export const getRunningTicketTime = (state, defaul = null) => {
-    let ticket = state.get(['tickets', 'all', state.get(['tickets', 'started'])]);
-    return ticket ? ticket.get('time') : defaul;
+    let ticket = state.getIn(['tickets', 'all', state.getIn(['tickets', 'started'])]);
+    return ticket ? ticket.getIn('time') : defaul;
 };
 
 export const getPlayingTicketId = (state, defaul = null) => {
-    return state.get(['tickets', 'started']) ? state.get(['tickets', 'started']) : defaul;
+    return state.getIn(['tickets', 'started']) ? state.getIn(['tickets', 'started']) : defaul;
 };
 
 export const getPlayingTicket = (state, defaul = null) => {
     let id = getPlayingTicketId(state, null);
     if(id !== null){
-        return state.get(['tickets', 'all', id]);
+        return state.getIn(['tickets', 'all', id]);
     }
     return defaul;
 };

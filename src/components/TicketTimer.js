@@ -5,15 +5,15 @@ import { secondsToHMS } from '../helpers.js';
 import Chip from 'material-ui/Chip';
 
 const TicketTimer  = ({ ticket, handleStop, handlePlay, handlePause, handleTick }) => {
-    let actionButton = ticket.state == 'playing' ?
+    let actionButton = ticket.get('state') == 'playing' ?
         <i className="fa fa-pause" onClick={handlePause}></i> :
         <i className="fa fa-play" onClick={handlePlay}></i>;
-
+        
     return (
         <div style={TicketTimer.style.chip}>
-            <span style={TicketTimer.style.title}>{ticket.name}</span>
+            <span style={TicketTimer.style.title}>{ticket.get('name')}</span>
             <Chip >
-              <Timer state={ticket.state} handleTick={handleTick} time={secondsToHMS(ticket.time)} />
+              <Timer state={ticket.get('state')} handleTick={handleTick} time={secondsToHMS(ticket.get('time'))} />
               {'  '}
               <span style={{ height:'100%', borderLeft:'1px solid black', marginRight:'5px'}}></span>
               { actionButton }

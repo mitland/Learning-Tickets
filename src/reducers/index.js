@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux-immutable';
 import { Map, fromJS } from 'immutable';
 import * as constants from '../constants.js';
 import { tickets } from './tickets.js';

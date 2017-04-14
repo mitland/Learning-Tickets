@@ -1,7 +1,7 @@
 import * as types from '../actionTypes';
-import { Map, fromJS } from 'immutable';
+import { Map } from 'immutable';
 import { changeObjectState, coppyObjectState } from '../helpers.js';
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux-immutable';
 
 const ticket = (state, action) => {
     switch(action.type) {
@@ -17,12 +17,12 @@ const ticket = (state, action) => {
         case types.STOP_TICKET_TIMER:
         case types.PAUSE_TICKET_TIMER:
         case types.FINISH_TICKET:
-            if (state.id !== action.id) {
+            if (state.get('id') !== action.id) {
                 return state;
             }
             return state.set('state', action.state); 
         case types.ADD_SECOND_TO_TICKET:
-            if (state.id !== action.id) {
+            if (state.get('id') !== action.id) {
                 return state;
             }
             return state.update('time', time => time + 1); 

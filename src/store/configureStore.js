@@ -14,6 +14,27 @@ const initialState = fromJS({
                 priority: '1',
                 time: 0,
                 state: 'playing'
+            },
+            '2f1332vsehgsada35hqws':{
+                id: '2f1332vsehgsada35hqws',
+                name: 'Задача',
+                priority: '1',
+                time: 0,
+                state: 'playing'
+            },
+            '2f1332vsehgdwada35hqws':{
+                id: '2f1332vsehgdwada35hqws',
+                name: 'Задача',
+                priority: '1',
+                time: 0,
+                state: 'playing'
+            },
+            '2f1332vsehg3wdwadaw5hqws':{
+                id: '2f1332vsehg3wdwadaw5hqws',
+                name: 'Задача',
+                priority: '1',
+                time: 0,
+                state: 'playing'
             }
         },
         started:''

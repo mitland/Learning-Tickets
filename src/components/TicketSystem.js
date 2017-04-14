@@ -9,14 +9,14 @@ import AppBar from 'material-ui/AppBar';
 class TicketSystem extends Component {
     render() {
         let { playingTicket, tickets } = this.props;
-        
-        tickets = Object.keys(tickets).map((id) => {
+
+        tickets = tickets.map((ticket) => {
             return (
                 <Ticket
-                 key={tickets[id].id}
-                 ticket={tickets[id]}
-                 handleStart={() => {this.props.startTicketTimer(id);}}
-                 handleDelete={() => {this.props.deleteTicket(id);}} />
+                 key={ticket.get['id']}
+                 ticket={ticket}
+                 handleStart={() => {this.props.startTicketTimer(ticket.get('id'));}}
+                 handleDelete={() => {this.props.deleteTicket(ticket.get('id'));}} />
             );
         });
 
@@ -31,13 +31,13 @@ class TicketSystem extends Component {
                     <TicketForm />
                 </TicketPopUp>
                 { 
-                    playingTicket ? 
+                    playingTicket ?
                         <TicketTimer 
                          ticket={playingTicket}
-                         handlePlay={() => {this.props.startTicketTimer(playingTicket.id);}}
-                         handlePause={() => {this.props.pauseTicketTimer(playingTicket.id);}}
-                         handleStop={() => {this.props.stopTicketTimer(playingTicket.id);}}
-                         handleTick={() => {this.props.addSecondToTicket(playingTicket.id);}} /> 
+                         handlePlay={() => {this.props.startTicketTimer(playingTicket.get('id'));}}
+                         handlePause={() => {this.props.pauseTicketTimer(playingTicket.get('id'));}}
+                         handleStop={() => {this.props.stopTicketTimer(playingTicket.get('id'));}}
+                         handleTick={() => {this.props.addSecondToTicket(playingTicket.get('id'));}} /> 
                         : null
                 }
             </div>

@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "./dist/";
+/******/ 	__webpack_require__.p = "/dist/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 276);
@@ -33331,7 +33331,7 @@ var TicketSystem = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 null,
-                _react2.default.createElement(_AppBar2.default, { title: 'MARE' }),
+                _react2.default.createElement(_AppBar2.default, { title: 'Tickets' }),
                 tickets,
                 _react2.default.createElement(
                     _TicketPopUp2.default,

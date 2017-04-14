@@ -1,13 +1,13 @@
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as actions from '../actions/index.js';
-import { getAllTickets, getPlayingTicket } from '../selectors/index.js';
+import { getAllTickets, getPlayingTicket, getCreatingTicket } from '../selectors/index.js';
 import TicketSystem from '.././components/TicketSystem.js';
 
 function mapStateToProps (state) {
     return {
         tickets: getAllTickets(state),
-        creatingTicket: state.creatingTicket,
+        creatingTicket: getCreatingTicket(state),
         playingTicket: getPlayingTicket(state),
     };
 }
