@@ -5,7 +5,7 @@ import App from './containers/App.js';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import configureStore from './store/configureStore.js';
-asda
+
 injectTapEventPlugin();
 
 const store = configureStore();
