@@ -22,7 +22,7 @@ class TicketSystem extends Component {
 
         return (
             <div>
-                <AppBar title="HERE" />
+                <AppBar title="Tickets" />
                 {tickets}
                 <TicketPopUp
                  show={this.props.creatingTicket} 
