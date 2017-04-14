@@ -13,12 +13,12 @@ class TicketSystem extends Component {
         tickets = tickets.map((ticket) => {
             return (
                 <Ticket
-                 key={ticket.get['id']}
+                 key={ticket.get('id')}
                  ticket={ticket}
                  handleStart={() => {this.props.startTicketTimer(ticket.get('id'));}}
                  handleDelete={() => {this.props.deleteTicket(ticket.get('id'));}} />
             );
-        });
+        }).toArray();
 
         return (
             <div>

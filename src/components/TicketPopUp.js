@@ -4,6 +4,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import TicketForm from '.././components/TicketForm.js';
 import SideAddButton from '.././components/SideAddButton.js';
+import PureComponent from '.././components/PureComponent.js';
 
 function TicketPopUp({show, handleOpenPopUp, handleClosePopUp, children}) {
     let actions = [
@@ -47,4 +48,4 @@ TicketPopUp.propTypes = {
     handleClosePopUp: PropTypes.func.isRequired
 };
 
-export default TicketPopUp;
+export default PureComponent(TicketPopUp, ['show']);
