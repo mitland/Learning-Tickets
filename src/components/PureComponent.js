@@ -7,9 +7,11 @@ const PureComponent = (WrappedComponent, selectedProps = 'all', selectedState = 
             return !shallowEqual(oldData, newData);
         }
         shallowCheckMultiple(selectedData, oldData, newData) {
-            return !Math.max(selectedData.map(function(selected){
-                return this.shallowCheck(oldData.selected, newData.selected);
-            }, this), 0);
+            return !selectedData
+                        .map(selected => {
+                            return this.shallowCheck(oldData[selected], newData[selected]);
+                        }, this)
+                        .includes(true);
         }
         shouldComponentUpdate(nextProps, nextState) {
             if(
