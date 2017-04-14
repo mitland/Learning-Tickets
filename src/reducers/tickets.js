@@ -1,17 +1,18 @@
 import * as types from '../actionTypes';
+import { Map, fromJS } from 'immutable';
 import { changeObjectState, coppyObjectState } from '../helpers.js';
 import { combineReducers } from 'redux';
 
 const ticket = (state, action) => {
     switch(action.type) {
         case types.CREATE_TICKET:
-            return {
+            return Map({
                 id: action.id,
                 name: action.name,
                 priority: action.priority,
                 time: action.time,
                 state: action.state
-            };
+            });
         case types.START_TICKET_TIMER:
         case types.STOP_TICKET_TIMER:
         case types.PAUSE_TICKET_TIMER:
@@ -19,44 +20,29 @@ const ticket = (state, action) => {
             if (state.id !== action.id) {
                 return state;
             }
-            return {
-                ...state,
-                state: action.state,
-            };
+            return state.set('state', action.state); 
         case types.ADD_SECOND_TO_TICKET:
             if (state.id !== action.id) {
                 return state;
             }
-
-            return {
-                ...state,
-                time: state.time + 1,
-            };
+            return state.update('time', time => time + 1); 
         default:
             return state;
     }
 };
 
-const all = (state = {}, action) => {
+const all = (state = Map(), action) => {
     switch(action.type) {
         case types.CREATE_TICKET:
-            return {
-                ...state,
-                [action.id]: ticket(undefined, action)
-            };
+            return state.set(action.id, ticket(undefined, action));
         case types.DELETE_TICKET:
-            let newState = {...state};
-            delete newState[action.id];
-            return newState;
+            return state.delete(action.id);
         case types.START_TICKET_TIMER:
         case types.STOP_TICKET_TIMER:
         case types.PAUSE_TICKET_TIMER:
         case types.FINISH_TICKET:
         case types.ADD_SECOND_TO_TICKET:
-            return {
-                ...state,
-                [action.id]: ticket(state[action.id], action)
-            };
+            return state.set(action.id, ticket(state.get(action.id), action));
         default:
             return state;
     }

@@ -1,9 +1,10 @@
 import { createStore, applyMiddleware } from 'redux';
+import { fromJS } from 'immutable';
 import rootReducer from '../reducers/index';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
-const initialState = {
+const initialState = fromJS({
     creatingTicket: false,
     tickets: {
         all: {
@@ -18,7 +19,7 @@ const initialState = {
         started:''
     },
     errors: []
-};
+});
 
 export default function configureStore(){
     return createStore(

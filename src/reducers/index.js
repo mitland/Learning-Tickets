@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { Map, fromJS } from 'immutable';
 import * as constants from '../constants.js';
 import { tickets } from './tickets.js';
 import * as types from '../actionTypes';
@@ -14,15 +15,12 @@ const ticketModal = (state = false, action) => {
     }
 };
 
-const validationFailure = (state = {}, action) => {
-    let newState = { ...state };
+const validationFailure = (state = Map(), action) => {
     switch(action.type) {
         case types.CLOSE_TICKET_MODAL:
-            newState[constants.TICKET_MODAL_ERRORS] = undefined;
-            return newState;
+            return state.delete(constants.TICKET_MODAL_ERRORS);
         case types.VALIDATE_FAILURE:
-            newState[action.name] = action.errors;
-            return newState;
+            return state.set(action.name, fromJS(action.errors));
         default:
             return state;
     }   

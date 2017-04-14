@@ -22,7 +22,7 @@
         ],
         "linebreak-style": [
             "error",
-            "unix"
+            "windows"
         ],
         "quotes": [
             "error",
@@ -33,6 +33,7 @@
             "always"
         ],
         "no-unused-vars": 0,
-        "no-case-declarations": 0
+        "no-case-declarations": 0,
+        "no-console": 0
     }
 }
