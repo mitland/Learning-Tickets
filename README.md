@@ -6,5 +6,6 @@ First you should have npm installed on your machine. Then when you are in the di
    1.	npm run install
   2.	npm run build
   3.	npm run start
+
 Then open localhost:8080 and you should see the result
 
