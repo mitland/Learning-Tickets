@@ -16,9 +16,11 @@ const PureComponent = (WrappedComponent, selectedProps = 'all', selectedState = 
         shouldComponentUpdate(nextProps, nextState) {
             if(
                 (selectedProps === 'all' && this.shallowCheck(this.props, nextProps))
-                || ( selectedState === 'all' && this.shallowCheck(this.state, nextState))
+                || (selectedState === 'all' && this.shallowCheck(this.state, nextState))
             ){
                 return true;
+            }else if(selectedProps === 'all' || selectedState === 'all'){
+                return false;
             }
 
             if(selectedProps === false || selectedState === false){
